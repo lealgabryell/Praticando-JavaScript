@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendendo JS</title>
+
+</head>
+
+<body>
+  <h1>Calcular média</h1>
+  <input type="number" id="numero1" placeholder="Número 1:">
+  <input type="number" id="numero2" placeholder="Número 2:">
+  <input type="number" id="numero3" placeholder="Número 3:">
+  <button onclick="calcularMedia()">Calcular média</button>
+  <p id="resultado"></p>
+
+  <script>
+    function calcular() {
+      const numero1 = parseFloat(document.getElementById("numero1").value);
+      const numero2 = parseFloat(document.getElementById("numero2").value);
+      const numero3 = parseFloat(document.getElementById("numero3").value);
+
+      const media = calcularMedia(numero1, numero2, numero3);
+      document.getElementById("resultado").innerHTML = `A média dos números é: ${media}`;
+    }
+
+    function calcularMedia(numero1, numero2, numero3) {
+      const media = (numero1 + numero2 + numero3) / 3;
+      return media;
+    }
+  </script>
+  <!-- <script src="./index.js"></script> -->
+</body>
+
+</html>
