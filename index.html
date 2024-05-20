@@ -9,52 +9,35 @@
 </head>
 
 <body>
-  <h1>Calcular média</h1>
-  <input type="number" id="numero1" placeholder="Numero 1:">
-  <input type="number" id="numero2" placeholder="Numero 2:">
-  <input type="text" id="operador" placeholder="Operador:">
-  <button onclick="calcularOperacao()">Calcular</button>
+  <h1>Calculadora IMC</h1>
+  <input type="number" id="altura" placeholder="Altura(em metros)">
+  <input type="number" id="peso" placeholder="Peso(em kg)">
+
+  <button onclick="calcularIMC()">Calcular IMC</button>
   <p id="resultado"></p>
   <script>
 
-    function somar(numero1, numero2) {
-      const soma = (numero1 + numero2);
-      return soma;
-    }
-    function subtrair(numero1, numero2) {
-      const soma = (numero1 - numero2);
-      return soma;
-    }
-    function multiplicar(numero1, numero2) {
-      const soma = (numero1 * numero2);
-      return soma;
-    }
-    function dividir(numero1, numero2) {
-      const soma = (numero1 / numero2);
-      return soma;
+    function calcular(altura, peso) {
+      return peso / (altura * altura);
     }
 
-    function calcularOperacao() {
-      const numero1 = parseFloat(document.getElementById("numero1").value);
-      const numero2 = parseFloat(document.getElementById("numero2").value);
-      const operador = document.getElementById("operador").value;
+    function calcularIMC() {
+      const altura = parseFloat(document.getElementById("altura").value);
+      const peso = parseFloat(document.getElementById("peso").value);
+
+      const conversao = calcular(altura, peso);
       let resultado;
-      let operacao;
-      if (operador == "+") {
-        resultado = somar(numero1, numero2);
-        operacao = 'soma';
-      } else if (operador == "-") {
-        resultado = subtrair(numero1, numero2);
-        operacao = 'subtracao';
-      } else if(operador == "*"){
-        resultado = multiplicar(numero1, numero2);
-        operacao = 'multiplicacao';
-      } else if(operador == "/"){
-        resultado = dividir(numero1, numero2);
-        operacao = 'divisao';
-      }
-      document.getElementById("resultado").innerHTML = `A ${operacao} entre os dois numeros digitados = ${resultado}`
 
+      if (conversao <= 18.4) {
+        resultado = 'Abaixo do peso';
+      } else if (conversao > 18.4 && conversao < 25) {
+        resultado = 'Peso normal';
+      } else if (conversao >= 25 && conversao <= 29.99) {
+        resultado = 'Acima do peso';
+      } else if (conversao > 29.99) {
+        resultado = 'Obesidade';
+      }
+      document.getElementById("resultado").innerHTML = `${resultado}`
     }
   </script>
 </body>
