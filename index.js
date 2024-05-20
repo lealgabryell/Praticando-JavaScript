@@ -5,5 +5,3 @@
 // media = (parseFloat(num1) + parseFloat(num2) + parseFloat(num3))/3
 
 // console.log(media); 
-
-

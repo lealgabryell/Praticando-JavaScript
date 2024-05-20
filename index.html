@@ -10,28 +10,53 @@
 
 <body>
   <h1>Calcular média</h1>
-  <input type="number" id="numero1" placeholder="Número 1:">
-  <input type="number" id="numero2" placeholder="Número 2:">
-  <input type="number" id="numero3" placeholder="Número 3:">
-  <button onclick="calcularMedia()">Calcular média</button>
+  <input type="number" id="numero1" placeholder="Numero 1:">
+  <input type="number" id="numero2" placeholder="Numero 2:">
+  <input type="text" id="operador" placeholder="Operador:">
+  <button onclick="calcularOperacao()">Calcular</button>
   <p id="resultado"></p>
-
   <script>
-    function calcular() {
+
+    function somar(numero1, numero2) {
+      const soma = (numero1 + numero2);
+      return soma;
+    }
+    function subtrair(numero1, numero2) {
+      const soma = (numero1 - numero2);
+      return soma;
+    }
+    function multiplicar(numero1, numero2) {
+      const soma = (numero1 * numero2);
+      return soma;
+    }
+    function dividir(numero1, numero2) {
+      const soma = (numero1 / numero2);
+      return soma;
+    }
+
+    function calcularOperacao() {
       const numero1 = parseFloat(document.getElementById("numero1").value);
       const numero2 = parseFloat(document.getElementById("numero2").value);
-      const numero3 = parseFloat(document.getElementById("numero3").value);
+      const operador = document.getElementById("operador").value;
+      let resultado;
+      let operacao;
+      if (operador == "+") {
+        resultado = somar(numero1, numero2);
+        operacao = 'soma';
+      } else if (operador == "-") {
+        resultado = subtrair(numero1, numero2);
+        operacao = 'subtracao';
+      } else if(operador == "*"){
+        resultado = multiplicar(numero1, numero2);
+        operacao = 'multiplicacao';
+      } else if(operador == "/"){
+        resultado = dividir(numero1, numero2);
+        operacao = 'divisao';
+      }
+      document.getElementById("resultado").innerHTML = `A ${operacao} entre os dois numeros digitados = ${resultado}`
 
-      const media = calcularMedia(numero1, numero2, numero3);
-      document.getElementById("resultado").innerHTML = `A média dos números é: ${media}`;
-    }
-
-    function calcularMedia(numero1, numero2, numero3) {
-      const media = (numero1 + numero2 + numero3) / 3;
-      return media;
     }
   </script>
-  <!-- <script src="./index.js"></script> -->
 </body>
 
 </html>
