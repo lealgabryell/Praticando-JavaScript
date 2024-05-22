@@ -4,42 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aprendendo JS</title>
+  <title>Gerenciador de filmes</title>
 
 </head>
 
 <body>
-  <h1>Calculadora IMC</h1>
-  <input type="number" id="altura" placeholder="Altura(em metros)">
-  <input type="number" id="peso" placeholder="Peso(em kg)">
-
-  <button onclick="calcularIMC()">Calcular IMC</button>
-  <p id="resultado"></p>
-  <script>
-
-    function calcular(altura, peso) {
-      return peso / (altura * altura);
-    }
-
-    function calcularIMC() {
-      const altura = parseFloat(document.getElementById("altura").value);
-      const peso = parseFloat(document.getElementById("peso").value);
-
-      const conversao = calcular(altura, peso);
-      let resultado;
-
-      if (conversao <= 18.4) {
-        resultado = 'Abaixo do peso';
-      } else if (conversao > 18.4 && conversao < 25) {
-        resultado = 'Peso normal';
-      } else if (conversao >= 25 && conversao <= 29.99) {
-        resultado = 'Acima do peso';
-      } else if (conversao > 29.99) {
-        resultado = 'Obesidade';
-      }
-      document.getElementById("resultado").innerHTML = `${resultado}`
-    }
-  </script>
+  <h1>Gerenciador de Filmes</h1>
+  <div id="app">  </div>
+  <script type="text/JavaScript" src="./index.js"></script>
 </body>
 
 </html>
