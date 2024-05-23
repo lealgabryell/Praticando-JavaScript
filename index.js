@@ -33,13 +33,19 @@ function ordenarFilme(){
   } else if (escolha === "2") {
     filmeParaAssistir.sort((a, b) => a.year - b.year);
   }
- 
 }
 
 function pesquisarFilme(){
-
+  let pesquisarFilme = prompt("Nome do filme:");
+  for (let i=0; i<filmeParaAssistir.length; i++){
+    if (filmeParaAssistir[i].title === pesquisarFilme) {
+      console.log(filmeParaAssistir[i].nomeFilme + " " + filmeParaAssistir[i].nomeAno);
+    } else{ 
+      console.log("Filme não encontrado");
+    }
+  }
 }
 
 function exibirFilme(){
- 
+ console.log(filmeParaAssistir);
 }
